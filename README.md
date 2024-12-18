@@ -10,9 +10,9 @@ Welcome to PollMate!
 ## Setup
 
 1. Clone the repository:  
-   `git clone https://github.com/MehediMubin/BNavyFamily.git`
+   `git clone https://github.com/MehediMubin/PollMate.git`
 2. Navigate into the project directory:  
-   `cd BNavyFamily`
+   `cd PollMate`
 
 3. Create a virtual environment:  
    `python3 -m venv .venv`
