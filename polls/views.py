@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from .models import Question, Choice
 from django.urls import reverse
@@ -12,11 +12,6 @@ def index(request):
 
 def detail(request, question_id):
    question = get_object_or_404(Question, pk=question_id)
-   # try:
-   #    question = Question.objects.get(pk=question_id)
-   # except Question.DoesNotExist:
-   #    raise Http404("Question does not exist")
-   
    return render(request, 'polls/detail.html', {"question": question})
 
 
@@ -37,4 +32,5 @@ def vote(request, question_id):
    else:
       selected_choice.votes = F("votes") + 1
       selected_choice.save()
-      return HttpResponseRedirect(reverse("polls:results", kwargs={"question_id": question.id}))
+      return redirect('polls:results', question_id=question.id)
+      # return HttpResponseRedirect(reverse("polls:results", kwargs={"question_id": question.id}))
