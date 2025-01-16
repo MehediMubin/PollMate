@@ -47,4 +47,3 @@ def vote(request, question_id):
       selected_choice.votes = F("votes") + 1
       selected_choice.save()
       return redirect('polls:results', pk=question.id)
-      # return HttpResponseRedirect(reverse("polls:results", kwargs={"question_id": question.id}))
